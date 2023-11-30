@@ -1,8 +1,4 @@
-import {
-  HiOutlineBell,
-  HiOutlineChatAlt,
-  HiOutlineSearch,
-} from "react-icons/hi";
+import { HiOutlineBell, HiOutlineChatAlt } from "react-icons/hi";
 import { Menu, Popover, Transition } from "@headlessui/react";
 import { Fragment } from "react";
 import classNames from "classnames";
@@ -11,18 +7,13 @@ import { useNavigate } from "react-router-dom";
 
 const Header = () => {
   const navigate = useNavigate();
+
   return (
-    <div className="bg-white h-16 px-4 shadow-lg flex justify-between items-center border-b border-gray-200">
+    <div className="bg-white h-16 px-4 shadow-lg flex justify-between items-center border-b border-gray-200 flex-wrap">
       <div className="relative">
-        <HiOutlineSearch
-          fontSize={20}
-          className="text-gray-400 absolute top-1/2 -translate-y-1/2 left-3"
-        />
-        <input
-          type="text"
-          placeholder="Search..."
-          className="text-sm focus:outline-none active:outline-none h-10 w-[24rem] border border-gray-300 text-gray-500 rounded-lg pl-11 px-6"
-        />
+        <h2 className="text-gray-500 text-lg uppercase">
+          Corporación textil sur
+        </h2>
       </div>
       <div className=" flex items-center gap-2 mr-2 cursor-pointer">
         {/** Messages **/}

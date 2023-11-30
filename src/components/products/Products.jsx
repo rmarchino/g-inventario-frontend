@@ -1,12 +1,9 @@
-import { Link } from "react-router-dom";
+import ProductTable from "./ProductTable";
 
 const Producto = () => {
   return (
-    <div>
-      Productos <br />
-      <Link to="/" className="underline">
-        Ir a dashboard
-      </Link>
+    <div className="flex flex-col gap-5">
+      <ProductTable />
     </div>
   );
 };
