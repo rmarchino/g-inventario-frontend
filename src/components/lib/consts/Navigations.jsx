@@ -2,7 +2,7 @@ import {
   HiOutlineViewGrid,
   HiOutlineCube,
   HiOutlineShoppingCart,
-  // HiOutlineDocumentText,
+  HiOutlineDocumentText,
   HiOutlineAnnotation,
   HiOutlineQuestionMarkCircle,
   HiOutlineCog,
@@ -48,12 +48,12 @@ export const DASHBOARD_SIDEBAR_LINKS = [
     path: "/salida-products",
     icon: <FaMoneyCheckDollar />,
   },
-  // {
-  //   key: "transactions",
-  //   label: "Transactions",
-  //   path: "/transactions",
-  //   icon: <HiOutlineDocumentText />,
-  // },
+  {
+    key: "transactions",
+    label: "Transactions",
+    path: "/transactions",
+    icon: <HiOutlineDocumentText />,
+  },
   {
     key: "messages",
     label: "Messages",

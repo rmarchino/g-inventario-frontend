@@ -3,94 +3,70 @@ import { RxUpdate } from "react-icons/rx";
 import { MdEdit } from "react-icons/md";
 import { MdDelete } from "react-icons/md";
 
-const productData = [
+const customerData = [
   {
     id: 1,
-    nombre: "Tela sintético inportada",
-    descripcion: "Excelente calidad 100% original",
-    precio: 29.99,
-    stock: 50,
-    categoria: "Sintético",
+    nombre: "John Doe",
+    dni: "72589636",
+    direccion: "Calle falsa 123",
+    telefono: "(+51)-923456796",
+    email: "john@gmail.com",
   },
   {
     id: 2,
-    nombre: "Tela algodón nacional",
-    descripcion: "Muy buena calidad 100% original",
-    precio: 34.99,
-    stock: 60,
-    categoria: "Algodon",
+    nombre: "Jane Smith",
+    dni: "76589436",
+    direccion: "Calle Tarapcá 520",
+    telefono: "(+51)-987654321",
+    email: "janesmith@hotmail.com",
   },
   {
     id: 3,
-    nombre: "Tela de cuero nacional",
-    descripcion: "Buena calidad 100% original",
-    precio: 49.99,
-    stock: 70,
-    categoria: "Cuero",
+    nombre: "Ana Garcia",
+    dni: "75896326",
+    direccion: "Av. de la independencia 450",
+    telefono: "(+51)-954321678",
+    email: "anagarciamail@yahoo.com",
   },
   {
     id: 4,
-    nombre: "Tela de lana natural",
-    descripcion: "Muy buena calidad 100% original",
-    precio: 59.99,
-    stock: 80,
-    categoria: "Lana",
+    nombre: "Luis Perez",
+    dni: "72589636",
+    direccion: "Calle Falsa 123",
+    telefono: "(+51)-923456796",
+    email: "luisperez@gmail.com",
   },
   {
     id: 5,
-    nombre: "Tela de seda natural",
-    descripcion: "Excelente calidad 100% original",
-    precio: 79.99,
-    stock: 90,
-    categoria: "Seda",
+    nombre: "Sara Rodriguez",
+    dni: "76589436",
+    direccion: "Calle Tarapcá 520",
+    telefono: "(+51)-987654321",
+    email: "sararodriguez@hotmail.com",
   },
   {
     id: 6,
-    nombre: "Tela de lineno natural",
-    descripcion: "Muy buena calidad 100% original",
-    precio: 99.99,
-    stock: 100,
-    categoria: "Lineno",
+    nombre: "Carlos Martinez",
+    dni: "75896326",
+    direccion: "Av. de la independencia 450",
+    telefono: "(+51)-954321678",
+    email: "carlossmartinez@yahoo.com",
   },
   {
     id: 7,
-    nombre: "Tela de cáñamo natural",
-    descripcion: "Buena calidad 100% original",
-    precio: 149.99,
-    stock: 110,
-    categoria: "Cáñamo",
-  },
-  {
-    id: 8,
-    nombre: "Tela de algodón extranjera",
-    descripcion: "Muy buena calidad 100% original",
-    precio: 29.99,
-    stock: 120,
-    categoria: "Algodon",
-  },
-  {
-    id: 9,
-    nombre: "Tela de cotton extranjera",
-    descripcion: "Excelente calidad 100% original",
-    precio: 39.99,
-    stock: 130,
-    categoria: "Cotton",
-  },
-  {
-    id: 10,
-    nombre: "Tela de silk extranjero",
-    descripcion: "Muy buena calidad 100% original",
-    precio: 49.99,
-    stock: 140,
-    categoria: "Silk",
+    nombre: "Maria Diaz",
+    dni: "72589636",
+    direccion: "Calle Falsa 123",
+    telefono: "(+51)-923456796",
+    email: "maria@gmail.com",
   },
 ];
 
-const ProductTable = () => {
+const CustomerData = () => {
   return (
     <>
       <h1 className="text-4xl text-gray-500 capitalize font-medium ">
-        Productos
+        Clientes
       </h1>
       <div className="flex flex-row gap-2 cursor-pointer items-center ">
         <RxUpdate className="text-4xl bg-gray-400 hover:bg-gray-500 duration-300 rounded-lg text-white p-2" />
@@ -129,22 +105,22 @@ const ProductTable = () => {
             <tr className="bg-blue-500 text-white text-lg">
               <th className="py-2 px-4 border-b">ID</th>
               <th className="py-2 px-4 border-b">Nombre</th>
-              <th className="py-2 px-4 border-b">Descripción</th>
-              <th className="py-2 px-4 border-b">Precio</th>
-              <th className="py-2 px-4 border-b">Stock</th>
-              <th className="py-2 px-4 border-b">Categoría</th>
+              <th className="py-2 px-4 border-b">DNI</th>
+              <th className="py-2 px-4 border-b">Dirección</th>
+              <th className="py-2 px-4 border-b">Telefono</th>
+              <th className="py-2 px-4 border-b">Email</th>
               <th className="py-2 px-4 border-b w-[7rem]">Acciones</th>
             </tr>
           </thead>
           <tbody>
-            {productData.map((product) => (
-              <tr key={product.id} className="text-gray-500">
-                <td className="py-2 px-4 border-b">{product.id}</td>
-                <td className="py-2 px-4 border-b">{product.nombre}</td>
-                <td className="py-2 px-4 border-b">{product.descripcion}</td>
-                <td className="py-2 px-4 border-b">{product.precio}</td>
-                <td className="py-2 px-4 border-b">{product.stock}</td>
-                <td className="py-2 px-4 border-b">{product.categoria}</td>
+            {customerData.map((customer) => (
+              <tr key={customer.id} className="text-gray-500">
+                <td className="py-2 px-4 border-b">{customer.id}</td>
+                <td className="py-2 px-4 border-b">{customer.nombre}</td>
+                <td className="py-2 px-4 border-b">{customer.dni}</td>
+                <td className="py-2 px-4 border-b">{customer.direccion}</td>
+                <td className="py-2 px-4 border-b">{customer.telefono}</td>
+                <td className="py-2 px-4 border-b">{customer.email}</td>
                 <td className="py-2 px-4 border-b">
                   <button className="bg-blue-500 text-white py-1 px-2 rounded">
                     <MdEdit />
@@ -162,4 +138,4 @@ const ProductTable = () => {
   );
 };
 
-export default ProductTable;
+export default CustomerData;

@@ -1,5 +1,11 @@
+import ProductOutputTable from "./ProductOutputTable";
+
 const ProductOutput = () => {
-  return <div>Salida de Productos</div>;
+  return (
+    <div className="flex flex-col gap-5">
+      <ProductOutputTable />
+    </div>
+  );
 };
 
 export default ProductOutput;

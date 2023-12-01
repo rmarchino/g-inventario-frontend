@@ -3,94 +3,84 @@ import { RxUpdate } from "react-icons/rx";
 import { MdEdit } from "react-icons/md";
 import { MdDelete } from "react-icons/md";
 
-const productData = [
+const proveedorData = [
   {
     id: 1,
-    nombre: "Tela sintético inportada",
-    descripcion: "Excelente calidad 100% original",
-    precio: 29.99,
-    stock: 50,
-    categoria: "Sintético",
+    nombre: "Importaciones Coril SAC",
+    direccion: "Av. Jose Olaya 530 ",
+    telefono: "(+51) 926 895 555",
+    ruc: "09234567893",
   },
   {
     id: 2,
-    nombre: "Tela algodón nacional",
-    descripcion: "Muy buena calidad 100% original",
-    precio: 34.99,
-    stock: 60,
-    categoria: "Algodon",
+    nombre: "Importaciones Casandra SAC",
+    direccion: "Av. Primavera 210",
+    telefono: "(+51) 956 835 535",
+    ruc: "09234567892",
   },
   {
     id: 3,
-    nombre: "Tela de cuero nacional",
-    descripcion: "Buena calidad 100% original",
-    precio: 49.99,
-    stock: 70,
-    categoria: "Cuero",
+    nombre: "Importaciones Elisa SAC",
+    direccion: "Av. Bolivariano 300",
+    telefono: "(+51) 987 654 321",
+    ruc: "09234567891",
   },
   {
     id: 4,
-    nombre: "Tela de lana natural",
-    descripcion: "Muy buena calidad 100% original",
-    precio: 59.99,
-    stock: 80,
-    categoria: "Lana",
+    nombre: "Importaciones Maria SAC",
+    direccion: "Av. San Martin 500",
+    telefono: "(+51) 912 345 678",
+    ruc: "09234567890",
   },
   {
     id: 5,
-    nombre: "Tela de seda natural",
-    descripcion: "Excelente calidad 100% original",
-    precio: 79.99,
-    stock: 90,
-    categoria: "Seda",
+    nombre: "Importaciones Carlos SAC",
+    direccion: "Av. Laureles 100",
+    telefono: "(+51) 965 478 901",
+    ruc: "09234567889",
   },
   {
     id: 6,
-    nombre: "Tela de lineno natural",
-    descripcion: "Muy buena calidad 100% original",
-    precio: 99.99,
-    stock: 100,
-    categoria: "Lineno",
+    nombre: "Importaciones Ana SAC",
+    direccion: "Av. Andres Avelino 200",
+    telefono: "(+51) 976 543 210",
+    ruc: "09234567888",
   },
   {
     id: 7,
-    nombre: "Tela de cáñamo natural",
-    descripcion: "Buena calidad 100% original",
-    precio: 149.99,
-    stock: 110,
-    categoria: "Cáñamo",
+    nombre: "Importaciones Luis SAC",
+    direccion: "Av. Los Robles 300",
+    telefono: "(+51) 935 246 801",
+    ruc: "09234567887",
   },
   {
     id: 8,
-    nombre: "Tela de algodón extranjera",
-    descripcion: "Muy buena calidad 100% original",
-    precio: 29.99,
-    stock: 120,
-    categoria: "Algodon",
+    nombre: "Importaciones Margarita SAC",
+    direccion: "Av. Cusco 100",
+    telefono: "(+51) 956 895 555",
+    ruc: "09234567886",
   },
   {
     id: 9,
-    nombre: "Tela de cotton extranjera",
-    descripcion: "Excelente calidad 100% original",
-    precio: 39.99,
-    stock: 130,
-    categoria: "Cotton",
+    nombre: "Importaciones Josefa SAC",
+    direccion: "Av. Miraflores 200",
+    telefono: "(+51) 987 654 320",
+    ruc: "09234567885",
   },
   {
     id: 10,
-    nombre: "Tela de silk extranjero",
-    descripcion: "Muy buena calidad 100% original",
-    precio: 49.99,
-    stock: 140,
-    categoria: "Silk",
+    nombre: "Importaciones Antonio SAC",
+    direccion: "Av. Puno 300",
+    telefono: "(+51) 912 345 679",
+    ruc: "09234567884",
   },
 ];
 
-const ProductTable = () => {
+const ProveedorTable = () => {
   return (
     <>
       <h1 className="text-4xl text-gray-500 capitalize font-medium ">
-        Productos
+        Proveedores
       </h1>
       <div className="flex flex-row gap-2 cursor-pointer items-center ">
         <RxUpdate className="text-4xl bg-gray-400 hover:bg-gray-500 duration-300 rounded-lg text-white p-2" />
@@ -129,22 +119,20 @@ const ProductTable = () => {
             <tr className="bg-blue-500 text-white text-lg">
               <th className="py-2 px-4 border-b">ID</th>
               <th className="py-2 px-4 border-b">Nombre</th>
-              <th className="py-2 px-4 border-b">Descripción</th>
-              <th className="py-2 px-4 border-b">Precio</th>
-              <th className="py-2 px-4 border-b">Stock</th>
-              <th className="py-2 px-4 border-b">Categoría</th>
+              <th className="py-2 px-4 border-b">Dirección</th>
+              <th className="py-2 px-4 border-b">Telefono</th>
+              <th className="py-2 px-4 border-b">Ruc</th>
               <th className="py-2 px-4 border-b w-[7rem]">Acciones</th>
             </tr>
           </thead>
           <tbody>
-            {productData.map((product) => (
-              <tr key={product.id} className="text-gray-500">
-                <td className="py-2 px-4 border-b">{product.id}</td>
-                <td className="py-2 px-4 border-b">{product.nombre}</td>
-                <td className="py-2 px-4 border-b">{product.descripcion}</td>
-                <td className="py-2 px-4 border-b">{product.precio}</td>
-                <td className="py-2 px-4 border-b">{product.stock}</td>
-                <td className="py-2 px-4 border-b">{product.categoria}</td>
+            {proveedorData.map((supplier) => (
+              <tr key={supplier.id} className="text-gray-500">
+                <td className="py-2 px-4 border-b">{supplier.id}</td>
+                <td className="py-2 px-4 border-b">{supplier.nombre}</td>
+                <td className="py-2 px-4 border-b">{supplier.direccion}</td>
+                <td className="py-2 px-4 border-b">{supplier.telefono}</td>
+                <td className="py-2 px-4 border-b">{supplier.ruc}</td>
                 <td className="py-2 px-4 border-b">
                   <button className="bg-blue-500 text-white py-1 px-2 rounded">
                     <MdEdit />
@@ -162,4 +150,4 @@ const ProductTable = () => {
   );
 };
 
-export default ProductTable;
+export default ProveedorTable;
