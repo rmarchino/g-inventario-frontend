@@ -8,6 +8,7 @@ import ProductEntry from "./components/entrada-productos/ProductEntry";
 import ProductOutput from "./components/salida-productos/ProductOutput";
 import Factura from "./components/factura/Facturas";
 import ValidateEmail from "./components/email/ValidateEmail";
+import Login from "./components/ui/Login";
 
 export default function App() {
   return (
@@ -22,8 +23,8 @@ export default function App() {
           <Route path="/salida-products" element={<ProductOutput />} />
           <Route path="/transactions" element={<Factura />} />
         </Route>
-        <Route path="/login" element={<div>Este es la página login</div>} />
         <Route path="/email-validate" element={<ValidateEmail />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
     </Router>
   );

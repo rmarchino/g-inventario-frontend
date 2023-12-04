@@ -1,14 +1,12 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useSearchParams, useNavigate, Link } from "react-router-dom";
+import { useSearchParams, Link } from "react-router-dom";
 
 const ValidateEmail = () => {
   const [searchParams] = useSearchParams();
   const token = searchParams.get("token");
   const [data, setData] = useState(false);
   const [error, setError] = useState(false);
-
-  const navigate = useNavigate();
 
   useEffect(() => {
     if (token) {
@@ -22,12 +20,7 @@ const ValidateEmail = () => {
           setError(true);
         });
     }
-  }, [token, navigate]);
-
-  // const redirectToLogin = () => {
-  //   console.log(navigate, "Este es la ruta login");
-  //   navigate.push("/login");
-  // };
+  }, [token]);
 
   return (
     <div className="flex items-center justify-center h-screen">
