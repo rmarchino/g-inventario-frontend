@@ -1,100 +1,79 @@
-import { IoMdAddCircle } from "react-icons/io";
-import { RxUpdate } from "react-icons/rx";
 import { MdEdit } from "react-icons/md";
 import { MdDelete } from "react-icons/md";
-
-const productData = [
-  {
-    id: 1,
-    nombre: "Tela sintético inportada",
-    descripcion: "Excelente calidad 100% original",
-    precio: 29.99,
-    stock: 50,
-    categoria: "Sintético",
-  },
-  {
-    id: 2,
-    nombre: "Tela algodón nacional",
-    descripcion: "Muy buena calidad 100% original",
-    precio: 34.99,
-    stock: 60,
-    categoria: "Algodon",
-  },
-  {
-    id: 3,
-    nombre: "Tela de cuero nacional",
-    descripcion: "Buena calidad 100% original",
-    precio: 49.99,
-    stock: 70,
-    categoria: "Cuero",
-  },
-  {
-    id: 4,
-    nombre: "Tela de lana natural",
-    descripcion: "Muy buena calidad 100% original",
-    precio: 59.99,
-    stock: 80,
-    categoria: "Lana",
-  },
-  {
-    id: 5,
-    nombre: "Tela de seda natural",
-    descripcion: "Excelente calidad 100% original",
-    precio: 79.99,
-    stock: 90,
-    categoria: "Seda",
-  },
-  {
-    id: 6,
-    nombre: "Tela de lineno natural",
-    descripcion: "Muy buena calidad 100% original",
-    precio: 99.99,
-    stock: 100,
-    categoria: "Lineno",
-  },
-  {
-    id: 7,
-    nombre: "Tela de cáñamo natural",
-    descripcion: "Buena calidad 100% original",
-    precio: 149.99,
-    stock: 110,
-    categoria: "Cáñamo",
-  },
-  {
-    id: 8,
-    nombre: "Tela de algodón extranjera",
-    descripcion: "Muy buena calidad 100% original",
-    precio: 29.99,
-    stock: 120,
-    categoria: "Algodon",
-  },
-  {
-    id: 9,
-    nombre: "Tela de cotton extranjera",
-    descripcion: "Excelente calidad 100% original",
-    precio: 39.99,
-    stock: 130,
-    categoria: "Cotton",
-  },
-  {
-    id: 10,
-    nombre: "Tela de silk extranjero",
-    descripcion: "Muy buena calidad 100% original",
-    precio: 49.99,
-    stock: 140,
-    categoria: "Silk",
-  },
-];
+import { useEffect } from "react";
+import useFetchData from "../hooks/useFetchData";
+import ModalForm from "./ModalForm";
 
 const ProductTable = () => {
+  const productsApiUrl = "http://localhost:8000/productos";
+  const categoriesApiUrl = "http://localhost:8000/categorias";
+  const usersApiUrl = "http://localhost:8000/users";
+
+  const {
+    data: productos,
+    loading: productsLoading,
+    error: productsError,
+  } = useFetchData(productsApiUrl);
+
+  const {
+    data: categorias,
+    loading: categoriesLoading,
+    error: categoriesError,
+  } = useFetchData(categoriesApiUrl);
+
+  const {
+    data: users,
+    loading: usersLoading,
+    error: usersError,
+  } = useFetchData(usersApiUrl);
+
+  // eslint-disable-next-line no-undef
+  useEffect(() => {
+    if (productsLoading || categoriesLoading || usersLoading) {
+      return;
+    }
+    if (productsError || categoriesError || usersError) {
+      console.log("Error al cargar los productos");
+    }
+  }, [
+    productos,
+    categorias,
+    users,
+    productsLoading,
+    categoriesLoading,
+    productsError,
+    categoriesError,
+    usersLoading,
+    usersError,
+  ]);
+
+  if (productsLoading || categoriesLoading || usersLoading) {
+    return <p>Cargando...</p>;
+  }
+
+  if (productsError || categoriesError || usersError) {
+    return <p>Error al cargar los productos</p>;
+  }
+
+  // Obtener el nombre de la categoría de cada producto
+  const getCategoryName = (categoria) => {
+    const category = categorias.find((c) => c.id === categoria);
+    return category && category.nombre ? category.nombre : "No hay categoría";
+  };
+
+  // Obtener el nombre del usuario de cada producto
+  const getUserName = (usuario) => {
+    const user = users.find((u) => u.id === usuario);
+    return user && user.firstname ? user.firstname : "No hay usuario";
+  };
+
   return (
     <>
       <h1 className="text-4xl text-gray-500 capitalize font-medium ">
         Productos
       </h1>
-      <div className="flex flex-row gap-2 cursor-pointer items-center ">
-        <RxUpdate className="text-4xl bg-gray-400 hover:bg-gray-500 duration-300 rounded-lg text-white p-2" />
-        <IoMdAddCircle className="text-4xl bg-green-400 hover:bg-green-500 duration-300 rounded-lg text-white p-2" />
+      <div className="cursor-pointer">
+        <ModalForm />
       </div>
       <div className="flex justify-between mt-3">
         <div className=" flex flex-row gap-2 text-gray-500 text-lg">
@@ -133,18 +112,24 @@ const ProductTable = () => {
               <th className="py-2 px-4 border-b">Precio</th>
               <th className="py-2 px-4 border-b">Stock</th>
               <th className="py-2 px-4 border-b">Categoría</th>
+              <th className="py-2 px-4 border-b">Usuario</th>
               <th className="py-2 px-4 border-b w-[7rem]">Acciones</th>
             </tr>
           </thead>
           <tbody>
-            {productData.map((product) => (
+            {productos.map((product) => (
               <tr key={product.id} className="text-gray-500">
                 <td className="py-2 px-4 border-b">{product.id}</td>
                 <td className="py-2 px-4 border-b">{product.nombre}</td>
                 <td className="py-2 px-4 border-b">{product.descripcion}</td>
                 <td className="py-2 px-4 border-b">{product.precio}</td>
                 <td className="py-2 px-4 border-b">{product.stock}</td>
-                <td className="py-2 px-4 border-b">{product.categoria}</td>
+                <td className="py-2 px-4 border-b">
+                  {getCategoryName(product.categoria)}
+                </td>
+                <td className="py-2 px-4 border-b">
+                  {getUserName(product.usuario)}
+                </td>
                 <td className="py-2 px-4 border-b">
                   <button className="bg-blue-500 text-white py-1 px-2 rounded">
                     <MdEdit />

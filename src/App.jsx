@@ -9,13 +9,22 @@ import ProductOutput from "./components/salida-productos/ProductOutput";
 import Factura from "./components/factura/Facturas";
 import ValidateEmail from "./components/email/ValidateEmail";
 import Login from "./components/ui/Login";
+import SignUp from "./components/ui/SignUp";
+import ProtectedRoutes from "./components/Routes/ProtectedRoutes";
 
 export default function App() {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route index element={<Dashboard />} />
+          <Route
+            index
+            element={
+              <ProtectedRoutes>
+                <Dashboard />
+              </ProtectedRoutes>
+            }
+          />
           <Route path="/products" element={<Products />} />
           <Route path="/suppliers" element={<Suppliers />} />
           <Route path="/customers" element={<Customers />} />
@@ -25,6 +34,7 @@ export default function App() {
         </Route>
         <Route path="/email-validate" element={<ValidateEmail />} />
         <Route path="/login" element={<Login />} />
+        <Route path="signup" element={<SignUp />} />
       </Routes>
     </Router>
   );
